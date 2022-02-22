@@ -5,7 +5,7 @@ const STORAGE_KEY = 'feedback-form-state';
 const form = document.querySelector('.feedback-form');
 // const email = document.querySelector('.feedback-form  input');
 // const message = document.querySelector('.feedback-form  textarea');
-const parcedItem = {};
+// const parcedItem = {};
 
 initForm();
 
@@ -14,7 +14,7 @@ form.addEventListener('change', throttle(changeForm, 500));
 
 function onFormSubmit(event) {
   event.preventDefault();
-  console.log('Form sent');
+  // console.log('Form sent');
   const formData = new FormData(form);
   // console.log(formData);
   formData.forEach((key, value) => console.log(`${value}-${key}`));
@@ -23,10 +23,9 @@ function onFormSubmit(event) {
   // console.log(event.currentTarget);
 }
 function changeForm(event) {
-  // let parcedItem = localStorage.getItem(STORAGE_KEY);
-  // parcedItem = parcedItem ? JSON.parse(parcedItem) : {};
+  let parcedItem = localStorage.getItem(STORAGE_KEY);
+  parcedItem = parcedItem ? JSON.parse(parcedItem) : {};
   parcedItem[event.target.name] = event.target.value;
-  // console.log(parcedItem);
 
   if (!parcedItem) return;
 
