@@ -10,7 +10,7 @@ const form = document.querySelector('.feedback-form');
 initForm();
 
 form.addEventListener('submit', onFormSubmit);
-form.addEventListener('change', throttle(changeForm, 500));
+form.addEventListener('input', throttle(changeForm, 500));
 
 function onFormSubmit(event) {
   event.preventDefault();
