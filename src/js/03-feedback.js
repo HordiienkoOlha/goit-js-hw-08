@@ -16,7 +16,8 @@ function onFormSubmit(event) {
   event.preventDefault();
   // console.log('Form sent');
   const formData = new FormData(form);
-  // console.log(formData);
+  const { email, message } = form.elements;
+  if (!email.value || !message.value) return alert('Все поля должны быть заполнены!');
   formData.forEach((key, value) => console.log(`${value}-${key}`));
   event.currentTarget.reset();
   localStorage.removeItem(STORAGE_KEY);
